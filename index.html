@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laskuri</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <script src="script.js"></script>
+
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'Brutto')">
+        Brutto
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'Netto')">Netto</button>
+      <button class="tablinks" onclick="openTab(event, 'Kulut')">Kulut</button>
+    </div>
+
+    <div id="Brutto" class="tabcontent">
+      <h2>Tuntipalkka bruttopalkaksi</h2>
+      <form>
+        <label>Työpäivät</label>
+        <br />
+        <input type="text" id="paivat" value="" />
+        <br />
+        <br />
+        <label>Työskentelytunnit/päivä</label>
+        <br />
+        <input type="text" id="tunnit" value="" />
+        <br />
+        <br />
+        <label>Tuntipalkka</label>
+        <br />
+        <input type="text" id="palkka" value="" />
+        <br />
+        <br />
+        <button
+          type="button"
+          onclick="tulos.value=laskeBrutto(paivat.value, tunnit.value, palkka.value)"
+        >
+          Laske
+        </button>
+        <br />
+        <br />
+        <input type="text" id="tulos" value="" />
+
+        <br />
+        <br />
+      </form>
+    </div>
+
+    <div id="Netto" class="tabcontent">
+      <h2>Bruttopalkka nettopalkaksi</h2>
+      <form>
+        <label>Bruttopalkka</label>
+        <br />
+        <input type="text" id="brutto" value="" />
+        <br />
+        <br />
+        <label>Työttömyysvakuusmaksu %</label>
+        <br />
+        <input type="text" value="1.5" id="vakuus" />
+        <br />
+        <br />
+        <label>TyEL- eläkevakuutusmaksu %</label>
+        <br />
+        <input type="text" value="7.15" id="elake" />
+        <br />
+        <br />
+        <label>Ennakonpidätys %</label>
+        <br />
+        <input type="text" value="0.5" id="vero" />
+        <br />
+        <br />
+        <button
+          type="button"
+          onclick="result.value=laskeNetto(brutto.value, vakuus.value, elake.value, vero.value)"
+        >
+          Laske
+        </button>
+        <br />
+        <br />
+        <input type="text" id="result" value="" />
+        <br />
+        <br />
+      </form>
+    </div>
+
+    <div id="Kulut" class="tabcontent">
+      <h2>Kuinka paljon jää kulujen jälkeen?</h2>
+      <form>
+        <label>Nettotulot</label>
+        <br />
+        <input type="text" id="tulot" value="" />
+        <br />
+        <br />
+        <div class="secondary">
+          <label>Asumiskulut (vuokra, vesi, sähkö...)</label>
+          <br />
+          <input type="text" type="text" id="asuminen" value="" />
+          <br />
+          <br />
+          <label>Ruoka</label>
+          <br />
+          <input type="text" id="ruoka" value="" />
+          <br />
+          <br />
+          <label>Harrastukset</label>
+          <br />
+          <input type="text" id="harrastukset" value="" />
+          <br />
+          <br />
+          <label>Juoksevat (Spotify, bussikortti, hammastahna...)</label>
+          <br />
+          <input type="text" id="juoksevat" value="" />
+          <br />
+          <br />
+          <label>Viihde</label>
+          <br />
+          <input type="text" id="viihde" value="" />
+          <br />
+          <br />
+          <label>Muut</label>
+          <br />
+          <input type="text" id="muut" value="" />
+          <br />
+          <br />
+          <button
+            type="button"
+            onclick="kateen.value=jaaKateen(tulot.value, asuminen.value, ruoka.value, harrastukset.value, juoksevat.value, viihde.value, muut.value)"
+          >
+            Laske
+          </button>
+          <br />
+          <br />
+          <input type="text" id="kateen" value="" />
+          <br />
+          <br />
+        </div>
+      </form>
+    </div>
+
+    <div class="laskin"></div>
+  </body>
+</html>
